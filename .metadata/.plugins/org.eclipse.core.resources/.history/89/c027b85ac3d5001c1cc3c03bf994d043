@@ -1,0 +1,110 @@
+$(function() {
+	getPlantes();
+	$("#bAjoutPlantes").on("click", ajouterPlantes);
+});
+
+
+
+function getPlantes() {
+	$("#errorPlantes").css("display", "none");
+	$.get("http://localhost:8080/tp-fleuriste/rs/plantes", afficherPlantes);
+}
+
+
+
+
+function ajouterPlantes() {
+
+	var data = {
+		nom: $("#nomPlantes").val(),
+		tarif: $("#tarifPlantes").val(),
+		quantite: $("#qtePlantes").val(),
+		description: $("#descPlantes").val(),
+		image: $("#urlPlantes").val(),
+	}
+	$.ajax({
+		type: 'post',
+		url: 'http://localhost:8080/tp-fleuriste/rs/plantes',
+		data: JSON.stringify(data),
+		contentType: "application/json;charset=utf-8",
+		success: function() {
+			$("#nomPlantes").val("");
+			$("#tarifPlantes").val("");
+			$("#qtePlantes").val("");
+			$("#descPlantes").val("");
+			$("#urlPlantes").val("");
+			
+			getPlantes();
+		}
+	})
+	.fail(function() {
+		$("#errorPlantes").css("display", "block");
+		$("#errorPlantes").html("Une erreur est survenue lors de l'ajout");
+	})
+	
+	console.log(data);
+
+}
+
+
+function afficherPlantes(plantes) {
+	var data = "";
+	plantes.forEach(function(p) {
+		var tr = "<tr>";
+		tr += "<td>" + p.id + "</td>";
+		tr += "<td><input type='text' id='libelle" + p.id + "' value=" + p.nom + " /></td>";
+		tr += "<td class='centre'><button onclick='modifSaisons(" + p.id + ")' type='button' class='glyphicon glyphicon-edit vert'></button></td>";
+		tr += "<td class='centre'><button onclick='suppSaisons(" + p.id + ")' type='button' class='glyphicon glyphicon-remove rouge'></button></td>";
+
+		tr += "</tr>";
+
+		data += tr;
+	})
+	$("#tbodyliste").html(data);
+}
+
+
+
+function suppPlantes(id){
+	$.ajax({
+		type : 'delete',
+		url : 'http://localhost:8080/tp-fleuriste/rs/plantes/' + id,
+		success : function(){
+			getPlantes();
+		}
+	})
+	.fail(function(){
+		$("#errorPlantes").css("display", "block");
+		$("#errorPlantes").html("Une erreur est survenue lors de la suppression");
+	})
+}
+
+
+
+function modifPlantes(id){
+	
+	var data = {
+		nom: $("#nomPlantes" + id).val(),
+		tarif: $("#tarifPlantes" + id).val(),
+		quantite: $("#qtePlantes" + id).val(),
+		description: $("#descPlantes" + id).val(),
+		image: $("#urlPlantes" + id).val(),
+	}
+	
+
+	$.ajax({
+		type : 'put',
+		url : 'http://localhost:8080/tp-fleuriste/rs/plantes/'+id,
+		data : JSON.stringify(data),
+		contentType : "application/json;charset=utf-8",
+		success : function(){
+			getPlantes();
+		}
+	})
+	.fail(function(){
+		getSaisons();
+		$("#errorPlantes").css("display", "block");
+		$("#errorPlantes").html("Une erreur est survenue lors de la modification");
+	})
+	
+}

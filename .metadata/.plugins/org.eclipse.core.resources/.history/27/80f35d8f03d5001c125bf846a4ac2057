@@ -1,0 +1,37 @@
+package fr.formation.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="PLANTES")
+public abstract class Plantes {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@Column(length = 50, nullable = false)
+	private String nom;
+	
+	@Column(nullable = false)
+	private double prix;
+	
+	@Column(nullable = false)
+	private int quantite;
+	
+	@Lob
+	private String description;
+	
+	private String image;
+	
+	
+	
+	
+	
+}

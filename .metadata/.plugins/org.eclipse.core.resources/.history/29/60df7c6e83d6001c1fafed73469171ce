@@ -1,0 +1,48 @@
+package fr.formation.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="BOUQUETS")
+public class Bouquets {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@Column(length = 50, nullable = false)
+	private String nom;
+	
+	@Column(nullable = false)
+	private float tarif;
+	
+	@Column(nullable = false)
+	private int quantite;
+	
+	@Lob
+	private String description;
+	
+	@Column(length = 250, nullable = false)
+	private String image;
+	
+	@Column(length = 50, nullable = true)
+	private String couleur;
+	
+	@ManyToOne
+	@JoinColumn(name = "idSaison")
+	private Saisons saison;
+	
+	@ManyToOne
+	@JoinColumn(name = "idStyle")
+	private Styles style;
+
+	
+}

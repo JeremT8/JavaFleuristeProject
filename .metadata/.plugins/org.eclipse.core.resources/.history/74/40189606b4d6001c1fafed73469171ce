@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Flow Hearts</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32"
+	href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="css/commun.css">
+<script src="./js/styles.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand active"> <span
+					class="glyphicon glyphicon-leaf rotate-leaf"></span> <span
+					class="glyphicon glyphicon-grain"></span> <span
+					class="glyphicon glyphicon-leaf"></span>
+				</a>
+				<button class="navbar-toggle" type="button" data-toggle="collapse"
+					data-target="#navbar-main">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="navbar-main">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="index.html">Accueil</a></li>
+					<li><a href="bouquets.html">Bouquets</a></li>
+					<li><a href="fleurs.html">Fleurs</a></li>
+					<li><a href="plantes.html">Plantes</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Gestion ▾ </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="plantes.html">Plantes</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="fleurs.html">Fleurs</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="bouquets.html">Bouquets</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="saisons.html">Saisons</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="styles.html">Styles</a>
+						</div></li>
+					<li><a  href="panier.html"> Panier</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="container">
+		<h1 class="bleu">Gestion des styles</h1>
+
+		<div class="alert alert-danger" id="errorStyle"></div>
+
+		<table class="table table-hover table-striped">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>Libelle</th>
+					<th>&nbsp;</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody id="tbodyliste">
+			</tbody>
+
+		</table>
+
+		<br> <br> <br>
+		<h2 class="bleu">Nouveau style :</h2>
+		<div>
+			<form class="form-horizontal">
+				<div class="form-group">
+					<div class="col-xs-10">
+						<input id="libelleStyle" placeholder="Libellé du style ..."
+							required class="form-control" />
+					</div>
+					<div class="col-xs-2">
+						<button type="button" id="bAjoutStyle"
+							class="btn btn-primary pull-right">Envoyer</button>
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+		<div class="container">
+			<ul class="nav navbar-nav  navbar-foot">
+				<li class="pull-left"><a>© 2022 Copyright</a></li>
+				<li class="pull-right"><a>Formation M2i</a></li>
+			</ul>
+		</div>
+	</nav>
+</body>
+</html>

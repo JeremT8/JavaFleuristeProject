@@ -1,0 +1,16 @@
+package fr.formation.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
+@Table(name="FLEURS")
+public class Fleurs extends Plantes {
+
+	@Column(length = 50, nullable = false)
+	private String couleur;
+	
+	@Column(name = "id_saison")
+	private Saisons saison;
+	
+}

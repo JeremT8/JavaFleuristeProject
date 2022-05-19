@@ -1,0 +1,47 @@
+1652692788260	Rename type 'Plante'
+1652692793779	Rename type 'Saison'
+1652692800589	Rename type 'Style'
+1652693120864	Rename resource 'NewFile.xml'
+1652702046407	Rename compilation unit 'DaoUtil.java'
+1652702189132	Delete element
+1652702803521	Delete element
+1652702820452	Extract interface 'FleursDao'
+1652702942321	Rename compilation unit 'FleursDaoImpl.java'
+1652702946880	Delete element
+1652702960622	Extract interface 'PlantesDao'
+1652703157520	Extract interface 'FleursDao'
+1652703242638	Extract interface 'BouquetsDao'
+1652704664412	Rename resource 'CSS'
+1652707968568	Rename resource 'JS'
+1652708183987	Rename type 'StyleManager'
+1652772570313	Copy file
+1652772759498	Copy file
+1652772788644	Copy compilation unit
+1652772816024	Copy compilation unit
+1652778252724	Copy compilation unit
+1652778360327	Copy compilation unit
+1652778482831	Copy file
+1652859945028	Delete element
+1652859947438	Delete element
+1652859950396	Delete element
+1652866436631	Copy file
+1652866461660	Rename resource 'modifplantes.html'
+1652866660684	Copy file
+1652867754110	Copy file
+1652867840534	Copy file
+1652867947947	Copy file
+1652868253265	Copy compilation unit
+1652868397828	Copy compilation unit
+1652874520691	Copy file
+1652874615917	Copy file
+1652874988106	Copy file
+1652881102226	Copy file
+1652881233302	Copy file
+1652881497081	Copy file
+1652881560376	Copy file
+1652883494114	Copy file
+1652883503488	Copy file
+1652883519232	Rename resource 'listeBouquet.html'
+1652883598813	Rename resource 'listeFleur.html'
+1652948366726	Copy file
+1652948663327	Copy file

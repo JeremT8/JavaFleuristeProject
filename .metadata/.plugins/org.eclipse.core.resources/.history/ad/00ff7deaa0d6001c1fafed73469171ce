@@ -1,0 +1,106 @@
+$(function() {
+	let searchParams = new URLSearchParams(window.location.search);
+	let id = searchParams.get('id')
+	if (id == null){
+		window.location = "bouquets.html";
+	}
+	else{
+		getBouquets(id);
+		getSaisons();
+		getStyles();
+	}
+	
+	$("#bEnvoyer").on ("click", envoyer);
+});
+
+
+function getPlantes() {
+	$.get("http://localhost:8080/tp-fleuriste/rs/bouquets", afficherBouquets);
+}
+
+function getSaisons() {
+	$.get("http://localhost:8080/tp-fleuriste/rs/saisons", function(saisons) {
+
+		var data = "";
+		saisons.forEach(function(s) {
+			data += "<option value=" + s.id + ">" + s.libelle + "</option>";
+		});
+
+		$("#saison").html(data);
+
+	});
+}
+
+function getStyles() {
+	$.get("http://localhost:8080/tp-fleuriste/rs/styles", function(styles) {
+
+		var data = "";
+		styles.forEach(function(s) {
+			data += "<option value=" + s.id + ">" + s.libelle + "</option>";
+		});
+
+		$("#style").html(data);
+
+	});
+}
+
+function afficherBouquets(bouquets) {
+	var data = "";
+	$("#nbBouquet").html(bouquets.length);
+	bouquets.forEach(function(b) {
+		var tr = "<tr>";
+		tr += "<td>" + b.id + "</td>";
+		tr += "<td><button onclick='afficheBouquet(" + b.id + ")' type='button' class='btn btn-link'>" + b.nom + "</button></td>";
+		tr += "<td>" + b.tarif + "</td>";
+		tr += "<td>" + b.quantite + "</td>";
+		tr += "<td>" + b.saison.libelle + "</td>";
+		tr += "<td>" + b.style.libelle + "</td>";
+		tr += "<td class='centre'><button onclick='modifBouquet(" + b.id + ")' type='button' class='btn btn-xs btn-success'>Modifier</button></td>";
+		tr += "<td class='centre'><button onclick='suppBouquet(" + b.id + ")' type='button' class='btn btn-xs btn-danger'>Supprimer</button></td>";
+		tr += "</tr>";
+		
+		data += tr;
+	})
+	
+	$("#tbodyliste").html(data);
+	
+	
+}
+
+
+
+function envoyer() {
+
+	var data = {
+		nom: $("#nomPlante").val(),
+		tarif: $("#tarifPlante").val(),
+		quantite: $("#quantitePlante").val(),
+		description: $("#infoPlante").val(),
+		image: $("#urlImagePlante").val(),
+	}
+	
+
+	$.ajax({
+		type: 'put',
+		url: 'http://localhost:8080/tp-fleuriste/rs/plantes' + $("#id").val(),
+		data: JSON.stringify(data),
+		contentType: "application/json;charset=utf-8",
+		success: function() {
+			window.location = "plantes.html";
+		}
+	})
+	.fail(function() {
+		$("#errorPlantes").css("display", "block");
+		$("#errorPlantes").html("Une erreur est survenue lors de la modification");
+	})
+}
+
+
+
+
+
+
+
+
+
+

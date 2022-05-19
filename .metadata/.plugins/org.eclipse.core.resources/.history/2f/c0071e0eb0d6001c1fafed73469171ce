@@ -1,0 +1,37 @@
+$(function() {
+	let searchParams = new URLSearchParams(window.location.search);
+	let id = searchParams.get('id')
+	if (id == null){
+		window.location = "plante.html";
+	}
+	else{
+		getAffPlante(id);
+	}
+});
+
+
+
+function getAffPlante(id) {
+    $("#errorPlante").css("display", "none");
+    $.get("http://localhost:8080/tp-fleuriste/rs/plantes/" + id, affichePlante);
+}
+
+
+
+
+function affichePlante(plante) {
+
+    console.log(plante);
+    $("#id").val(plante.id);
+    $("#nomFleur").val(plante.nom);
+    $('#nomFleur').prop('readonly', true);
+    $("#tarifFleur").val(plante.tarif);
+    $('#tarifFleur').prop('readonly', true);
+    $("#quantiteFleur").val(plante.quantite);
+    $('#quantiteFleur').prop('readonly', true);
+    $("#infoFleur").val(plante.description);
+    $('#infoFleur').prop('readonly', true);
+    $("#urlImageFleur").val(plante.image);
+    $('#urlImageFleur').prop('readonly', true);
+    $("#bAjoutPlante").hide();
+}

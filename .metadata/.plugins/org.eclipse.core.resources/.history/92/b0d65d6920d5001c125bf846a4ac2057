@@ -1,0 +1,9 @@
+package fr.formation.dal;
+
+
+public class DaoFactory {
+
+	public static StylesDao getStylesDao(){
+		return new StylesDaoImpl();
+	}
+}

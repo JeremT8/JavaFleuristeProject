@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div class="container">
+		<h1 class="bleu">Gestion des styles</h1>
+		
+		<div class="alert alert-danger" id="errorStyle">
+		</div>
+				
+		<table class="table table-hover table-striped">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>Libelle </th>
+					<th>&nbsp;</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody id="tbodyliste">
+			</tbody>
+			
+		</table>
+		
+		<br><br><br>
+		<h2 class="bleu">Nouveau style :</h2>
+		<div>
+			<form class="form-horizontal" >
+				<div class="form-group">
+					<div class="col-xs-10">
+						<input id="libelleStyle" placeholder="Libellé du style ..." required
+							class="form-control"  />
+					</div>
+					<div class="col-xs-2">
+						<button type="button" id="bAjoutStyle" class="btn btn-primary pull-right">Envoyer</button>			
+					</div>
+				</div>
+				
+			</form>
+		</div>
+	</div>
+</body>
+</html>

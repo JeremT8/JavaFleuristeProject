@@ -1,0 +1,9 @@
+package fr.formation.dal;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+
+public class FleursDaoImpl {
+
+	
+}

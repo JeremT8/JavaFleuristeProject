@@ -1,0 +1,68 @@
+package fr.formation.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="BOUQUETS")
+public class Bouquets extends Plantes {
+
+	@Column(length = 50, nullable = false)
+	private String couleur;
+
+	@ManyToOne
+	@Column(name = "idSaison")
+	private Saisons saison;
+	
+	@ManyToOne
+	@Column(name = "idStyle")
+	private Styles style;
+
+	public Bouquets() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Bouquets(int id, String nom, double prix, int quantite, String description, String image) {
+		super(id, nom, prix, quantite, description, image);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Bouquets(String nom, double prix, int quantite, String description, String image) {
+		super(nom, prix, quantite, description, image);
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getCouleur() {
+		return couleur;
+	}
+
+	public void setCouleur(String couleur) {
+		this.couleur = couleur;
+	}
+
+	public Saisons getSaison() {
+		return saison;
+	}
+
+	public void setSaison(Saisons saison) {
+		this.saison = saison;
+	}
+
+	public Styles getStyle() {
+		return style;
+	}
+
+	public void setStyle(Styles style) {
+		this.style = style;
+	}
+
+	@Override
+	public String toString() {
+		return "Bouquets [couleur=" + couleur + ", saison=" + saison + ", style=" + style + "]";
+	}
+	
+	
+}

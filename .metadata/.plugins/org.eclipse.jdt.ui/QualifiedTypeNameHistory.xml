@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="javax.persistence.Lob"/>
+    <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
+    <fullyQualifiedTypeName name="org.hibernate.annotations.ManyToAny"/>
+    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="javax.persistence.Table"/>
+    <fullyQualifiedTypeName name="javax.persistence.EntityManagerFactory"/>
+    <fullyQualifiedTypeName name="javax.persistence.Persistence"/>
+    <fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
+    <fullyQualifiedTypeName name="javax.persistence.EntityTransaction"/>
+    <fullyQualifiedTypeName name="fr.formation.entity.Saisons"/>
+    <fullyQualifiedTypeName name="javax.ws.rs.ApplicationPath"/>
+    <fullyQualifiedTypeName name="javax.ws.rs.core.Application"/>
+    <fullyQualifiedTypeName name="fr.formation.bll.StylesManager"/>
+    <fullyQualifiedTypeName name="fr.formation.dal.StylesDao"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="fr.formation.entity.Styles"/>
+    <fullyQualifiedTypeName name="fr.formation.exception.EntityException"/>
+    <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
+    <fullyQualifiedTypeName name="fr.formation.dal.DaoFactory"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+    <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
+    <fullyQualifiedTypeName name="javax.persistence.Column"/>
+    <fullyQualifiedTypeName name="fr.formation.dal.BouquetsDao"/>
+    <fullyQualifiedTypeName name="fr.formation.dal.BouquetsDaoImpl"/>
+    <fullyQualifiedTypeName name="fr.formation.bll.BouquetsManager"/>
+    <fullyQualifiedTypeName name="fr.formation.entity.Fleurs"/>
+    <fullyQualifiedTypeName name="fr.formation.entity.Bouquets"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,32 @@
+package fr.formation.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="FLEURS")
+public class Fleurs extends Plantes {
+
+	@Column(length = 50, nullable = false)
+	private String couleur;
+	
+	@ManyToOne
+	@Column(name = "id_saison")
+	private Saisons saison;
+
+	public Fleurs() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Fleurs(String nom ) {
+		super(String nom);
+	}
+	
+	
+	
+	
+}

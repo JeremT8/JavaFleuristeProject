@@ -1,0 +1,28 @@
+$(function() {
+	let searchParams = new URLSearchParams(window.location.search);
+	let id = searchParams.get('id')
+	if (id == null){
+		window.location = "fleur.html";
+	}
+	else{
+		getFleurs(id)
+		getSaisons();
+	}
+});
+
+function getFleurs(id) {
+	$.get("http://localhost:8080/tp-fleuriste/rs/fleurs" + id , afficherFleurs);
+}
+
+function getSaisons() {
+	$.get("http://localhost:8080/tp-fleuriste/rs/saisons", function(saisons) {
+
+		var data = "";
+		saisons.forEach(function(s) {
+			data += "<option value=" + s.id + ">" + s.libelle + "</option>";
+		});
+
+		$("#saison").html(data);
+
+	});
+}

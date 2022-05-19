@@ -1,0 +1,7 @@
+package fr.formation.dal;
+
+
+public class DaoFactory {
+
+	
+}

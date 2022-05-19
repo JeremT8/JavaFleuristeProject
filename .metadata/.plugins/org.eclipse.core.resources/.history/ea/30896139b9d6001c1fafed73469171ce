@@ -1,0 +1,21 @@
+
+
+
+
+
++=content = "<div class='card' style='width: 18rem;'>" 
++=content = " <img class='card-img-top' src='' alt=''>" 
++=content = "<div class='card-body'>" 
++=content = "<h5 class='card-title'>"+ blabla + "</h5>" 
++=content = " <p class='card-text'>" + descriiption + "</p>" 
++=content = " <a href='#' class='btn btn-primary'>" + Gosomewhere + "</a>" 
+
+
+
+
+  
+    
+   
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>

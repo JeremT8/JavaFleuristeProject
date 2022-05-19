@@ -1,0 +1,22 @@
+package fr.formation.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="BOUQUETS")
+public class Bouquets extends Plantes {
+
+	@Column(length = 50, nullable = false)
+	private String couleur;
+
+	@ManyToOne
+	@Column(name = "idSaison")
+	private Saisons saison;
+	
+	@ManyToOne
+	@Column(name = "idStyle")
+	private Styles style;
+}

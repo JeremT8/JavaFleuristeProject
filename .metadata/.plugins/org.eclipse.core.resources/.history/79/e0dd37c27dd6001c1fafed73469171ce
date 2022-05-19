@@ -1,0 +1,138 @@
+$(function() {
+	getFleurs();
+	getSaisons();
+	$("#bAjoutFleurs").on("click", ajouterFleurs);
+	$("#bModifier").on("click", modifier);
+});
+
+
+
+function getFleurs() {
+	$("#errorFleurs").css("display", "none");
+	$.get("http://localhost:8080/tp-fleuriste/rs/fleurs", afficherFleurs);
+}
+
+
+function getSaisons() {
+    $.get("http://localhost:8080/tp-fleuriste/rs/saisons", function(saisons) {
+
+        var data = "";
+        saisons.forEach(function(ss) {
+            data += "<option value=" + ss.id + ">" + ss.libelle + "</option>";
+        });
+
+        $("#saisons").html(data);
+
+    });
+}
+
+
+
+
+
+function ajouterFleurs() {
+
+	var data = {
+		nom: $("#nomFleurs").val(),
+		tarif: $("#tarifFleurs").val(),
+		quantite: $("#qteFleurs").val(),
+		description: $("#descFleurs").val(),
+		couleur: $("#couleurFleurs").val(),
+		image: $("#urlFleurs").val(),
+		saison :{
+            id: $("#saisons").val()
+            },
+    
+	}
+	 $.ajax({
+        type: 'post',
+        url: 'http://localhost:8080/tp-fleuriste/rs/fleurs',
+        data: JSON.stringify(data),
+        contentType: "application/json;charset=utf-8",
+        success: function() {
+            getFleurs();
+        }
+        
+    })
+	.fail(function() {
+		$("#errorFleurs").css("display", "block");
+		$("#errorFleurs").html("Une erreur est survenue lors de l'ajout");
+	})
+	
+	
+	
+	
+
+}
+
+
+function afficherFleurs(fleurs) {
+	var data = "";
+	fleurs.forEach(function(f) {
+		var tr = "<tr>";
+		tr += "<td>" + f.id + "</td>";
+		tr += "<td><input type='text' id='libelle" + f.id + "' value=" + f.nom + " /></td>";
+		tr += "<td><input type='text' id='libelle" + f.id + "' value=" + f.tarif + " /></td>";
+		tr += "<td><input type='text' id='libelle" + f.id + "' value=" + f.quantite + " /></td>";
+		tr += "<td> <select id='saisons'> <option> "+  getSaisons() + " </option> </select>";
+		tr += "<td class='centre'><button onclick='modifFleurs(" + f.id + ")' type='button' class='glyphicon glyphicon-edit vert'>Modifier</button></td>";
+		tr += "<td class='centre'><button onclick='suppFleurs(" + f.id + ")' type='button' class='glyphicon glyphicon-remove rouge'></button></td>";
+
+	
+
+		tr += "</tr>";
+
+		data += tr;
+	})
+	$("#tbodyliste").html(data);
+}
+
+
+
+function suppFleurs(id){
+	$.ajax({
+		type : 'delete',
+		url : 'http://localhost:8080/tp-fleuriste/rs/fleurs/' + id,
+		success : function(){
+			getFleurs();
+		}
+	})
+	.fail(function(){
+		$("#errorFleurs").css("display", "block");
+		$("#errorFleurs").html("Une erreur est survenue lors de la suppression");
+	})
+}
+
+
+
+function modifFleurs(id){
+	
+	var data = {
+		nom: $("#nomFleurs").val(Fleurs.id),
+		tarif: $("#tarifFleurs").val(Fleurs.prix),
+		quantite: $("#qteFleurs").val(Fleurs.quantite),
+		description: $("#descFleurs").val(Fleurs.description),
+		couleur: $("#couleurFleurs").val(Fleurs.couleur),
+		image: $("#urlFleurs").val(Fleurs.image),
+		saison: $("#saisons").val(Fleurs.saison),
+	}
+	
+
+	$.ajax({
+		type : 'put',
+		url : 'http://localhost:8080/tp-fleuriste/rs/fleurs/'+id,
+		data : JSON.stringify(data),
+		contentType : "application/json;charset=utf-8",
+		success : function(){
+			getFleurs();
+		}
+	})
+	.fail(function(){
+		getFleurs();
+		$("#errorFleurs").css("display", "block");
+		$("#errorFleurs").html("Une erreur est survenue lors de la modification");
+	})
+	
+	console.log(data);
+	
+}

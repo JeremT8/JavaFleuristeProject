@@ -1,0 +1,12 @@
+package fr.formation.dal;
+
+
+public class DaoFactory {
+
+	public static StyleDAO getStyleDAO(){
+		return new StyleDAOImpl();
+	}
+	public static FilmDAO getFilmDAO(){
+		return new FilmDAOImpl();
+	}
+}

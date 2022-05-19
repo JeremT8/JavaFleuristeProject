@@ -1,0 +1,52 @@
+$(function() {
+	let searchParams = new URLSearchParams(window.location.search);
+	let id = searchParams.get('id')
+	if (id == null){
+		window.location = "fleur.html";
+	}
+	else{
+		getAffFleur(id);
+		getSaisons();
+	}
+});
+
+
+function getSaisons() {
+	$.get("http://localhost:8080/tp-fleuriste/rs/saisons", function(saisons) {
+
+		var data = "";
+		saisons.forEach(function(s) {
+			data += "<option value=" + s.id + ">" + s.libelle + "</option>";
+		});
+
+		$("#saison").html(data);
+
+	});
+}
+
+function getAffFleur(id) {
+    $("#errorFleur").css("display", "none");
+    $.get("http://localhost:8080/tp-fleuriste/rs/fleurs/" + id, afficheFleur);
+}
+
+
+
+
+function afficheFleur(fleur) {
+
+    
+    $("#id").val(fleur.id);
+    $("#nomFleur").val(fleur.nom);
+    $('#nomFleur').prop('readonly', true);
+    $("#tarifFleur").val(fleur.tarif);
+    $('#tarifFleur').prop('readonly', true);
+    $("#quantiteFleur").val(fleur.qte);
+    $('#quantiteFleur').prop('readonly', true);
+    $("#infoFleur").val(fleur.info);
+    $('#infoFleur').prop('readonly', true);
+    $("#urlImageFleur").val(fleur.image);
+    $('#urlImageFleur').prop('readonly', true);
+    $("#couleurFleur").val(fleur.couleur);
+    $('#couleurFleur').prop('readonly', true);
+    $("#bAjoutFleur").hide();
+}

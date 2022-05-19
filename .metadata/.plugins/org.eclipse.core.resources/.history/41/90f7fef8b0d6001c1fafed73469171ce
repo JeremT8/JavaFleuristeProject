@@ -1,0 +1,37 @@
+$(function() {
+	let searchParams = new URLSearchParams(window.location.search);
+	let id = searchParams.get('id')
+	if (id == null){
+		window.location = "bouquet.html";
+	}
+	else{
+		getAffBouquets(id);
+	}
+});
+
+
+
+function getAffBouquets(id) {
+    $("#errorBouquets").css("display", "none");
+    $.get("http://localhost:8080/tp-fleuriste/rs/bouquets/" + id, afficheBouquets);
+}
+
+
+
+
+function afficheBouquets(bouquet) {
+
+    console.log(bouquet);
+    $("#id").val(bouquet.id);
+    $("#nomBouquets").val(bouquet.nom);
+    $('#nomBouquets').prop('readonly', true);
+    $("#tarifBouquets").val(bouquet.tarif);
+    $('#tarifBouquets').prop('readonly', true);
+    $("#quantiteBouquets").val(bouquet.quantite);
+    $('#quantiteBouquets').prop('readonly', true);
+    $("#infoBouquets").val(bouquet.description);
+    $('#infoBouquets').prop('readonly', true);
+    $("#urlImageBouquets").val(bouquet.image);
+    $('#urlImageBouquets').prop('readonly', true);
+    $("#bAjoutBouquets").hide();
+}

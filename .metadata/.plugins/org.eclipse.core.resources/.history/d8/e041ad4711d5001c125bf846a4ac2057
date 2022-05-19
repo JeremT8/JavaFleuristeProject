@@ -1,0 +1,28 @@
+package fr.formation.dal;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+
+import fr.formation.entity.Fleurs;
+import fr.formation.entity.Plantes;
+
+public class FleursDaoImpl {
+
+	@Override
+	public void delete(Fleurs f) throws Exception{
+		EntityManager em = DAOUtil.getEntityManager();
+		EntityTransaction et = em.getTransaction();
+		f = em.find(Fleurs.class, f.getId());
+		et.begin();
+		try {
+			em.remove(f);
+			et.commit();
+		} catch (Exception e) {
+			et.rollback();
+			throw e;
+		}
+		finally {
+			em.close();
+		}
+	}
+}
